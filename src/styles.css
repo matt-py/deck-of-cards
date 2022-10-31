@@ -1,0 +1,31 @@
+.card-display {
+  display: grid;
+  grid-template-columns: repeat(13, minmax(1vw, 100%));
+  grid-template-rows: repeat(4);
+}
+
+.card {
+  font-size: min(10vw, 16vh);
+  user-select: none;
+}
+
+.button {
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 6px 16px;
+  margin: 10px;
+  user-select: none;
+}
+
+.button:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
