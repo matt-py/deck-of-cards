@@ -53,11 +53,22 @@ const cardIcons = {
   '13s':'🂮',
 };
 
+const cardColours = {
+  "h":'red',
+  "c":'black',
+  "d":'red',
+  "s":'black'
+}
+
 export default function Card({ value }) {
+  const getColour = () => {
+    return cardColours[value.slice(-1)];
+  }
+
   return (
-    <>
+    <div className="card" style={{ color: getColour() }}>
       {cardIcons[value]}
-    </>
+    </div>
   );
 }
   

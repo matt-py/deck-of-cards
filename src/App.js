@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CardDisplay from "./CardDisplay";
+import './styles.css';
 
 const DEFAULT_CARDLIST = [
   "1h", "2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h",
@@ -51,9 +52,10 @@ export default function App() {
   }
 
   const shuffleCards = () => {
-    const shuffledCards = shuffleArray([...cards, ...displayedCards])
+    const shuffledCards = shuffleArray([...cards]);
+    const shuffledDisplayedCards = shuffleArray([...displayedCards]);
     setCards([...shuffledCards]);
-    setDisplayedCards([]);
+    setDisplayedCards([...shuffledDisplayedCards]);
   }
 
   const sortCards = () => {
@@ -76,22 +78,22 @@ export default function App() {
 
   return (
     <div>
-      <CardDisplay cards={displayedCards}/>
-      <button type="button" onClick={displayAllCards} disabled={!cards.length}>
+      <button type="button" className="button" onClick={displayAllCards} disabled={!cards.length}>
         Display all cards
       </button>
-      <button type="button" onClick={hideAllCards} disabled={!displayedCards.length}>
-        Return cards to deck
+      <button type="button" className="button" onClick={hideAllCards} disabled={!displayedCards.length}>
+        Return cards to bottom of deck
       </button>
-      <button type="button" onClick={drawCard} disabled={!cards.length}>
-        Draw card
+      <button type="button" className="button" onClick={drawCard} disabled={!cards.length}>
+        Draw a card
       </button>
-      <button type="button" onClick={shuffleCards}>
-        Shuffle cards
+      <button type="button" className="button" onClick={shuffleCards}>
+        Shuffle all cards
       </button>
-      <button type="button" onClick={sortCards} disabled={!displayedCards.length}>
+      <button type="button" className="button" onClick={sortCards} disabled={!displayedCards.length}>
         Sort displayed cards
       </button>
+      <CardDisplay cards={displayedCards}/>
     </div>
   );
 }
